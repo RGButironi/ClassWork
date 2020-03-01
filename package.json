@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/RGButironi/ClassWork/issues"
   },
-  "homepage": "https://github.com/RGButironi/ClassWork#readme"
+  "homepage": "https://github.com/RGButironi/ClassWork#readme",
+  "dependencies": {
+    "bulma": "^0.8.0"
+  }
 }
