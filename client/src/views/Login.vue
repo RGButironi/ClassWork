@@ -12,7 +12,7 @@
         </p>
         </div>
         <div class="field">
-        <p class="control has-icons-left">
+        <p class="control has-icons-left is-primary">
             <input class="input" type="password" placeholder="Password">
             <span class="icon is-small is-left">
             <i class="fas fa-lock"></i>
