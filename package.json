@@ -5,6 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   },
   "repository": {
     "type": "git",
@@ -15,8 +23,5 @@
   "bugs": {
     "url": "https://github.com/RGButironi/ClassWork/issues"
   },
-  "homepage": "https://github.com/RGButironi/ClassWork#readme",
-  "dependencies": {
-    "bulma": "^0.8.0"
-  }
+  "homepage": "https://github.com/RGButironi/ClassWork#readme"
 }

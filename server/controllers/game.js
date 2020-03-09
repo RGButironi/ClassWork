@@ -7,9 +7,9 @@ const router = express.Router();
 router
     .get('/quoteCards', (req, res) => res.send(quoteCards) )
     .post('/quoteCards', (req, res) => {
-        quoteCards.add(request.query.text);
-        res.send(quoteCards[quoteCards.list.length - 1]);
-    }
-    )
+        quoteCards.add(req.query.text);
+        res.send(quoteCards.list[quoteCards.list.length - 1]);
+    })
 
-    module.exports = router;
+
+module.exports = router;
