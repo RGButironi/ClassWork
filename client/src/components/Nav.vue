@@ -46,14 +46,7 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light" href="/login">
-            Log in
-          </a>
-        </div>
+        <Login :CurrentUser="Currentuser"></Login>
       </div>
     </div>
   </div>
@@ -61,10 +54,17 @@
 </template>
 
 <script>
+import Login from "./LoginComponent"
+import * as Users from "../models/Users"
 export default {
+  
   data: ()=>({
-    isOpen: false
-  })
+    isOpen: false,
+    Users: Users
+  }),
+  components: {
+    Login
+  }
 }
 </script>
 
