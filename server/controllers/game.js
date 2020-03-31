@@ -16,9 +16,12 @@ router
         res.send(quoteCards.list[quoteCards.list.length - 1]);
     })
 
-    .get('/', (reg, res) => res.send(game) )
+    .get('/', (reg, res) => res.send({
+        Players: game.Players, PictureDeck: game.PictureDeck, CurrentPicture: game.CurrentPicture,
+        CardsInPlay: game.CardsInPlay.map(x=> ({...x, PlayerId: 'unknown' }) ) 
+    }) )
     .post('/cardsInPlay', (req, res) => {
-        const playerId = 0;
-        game.SubmitCaption(reg.body.caption, playerId)
+        const playerId = req.body.playerId;
+        game.SubmitCaption(req.body.caption, playerId)
     } )
 module.exports = router;
