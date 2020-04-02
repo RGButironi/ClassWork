@@ -1,5 +1,6 @@
-const CurrentUser = require("./Users");
-
+const users = require("./Users");
+const CaptionsDeck = require('../models/quoteCards');
+const DEAL_AMOUNT = 3;
 const Players = [
     { Name: 'Bernie', Score: 0, isDealer: false }
 ];
@@ -19,20 +20,19 @@ const CardsInPlay = [];
 function SubmitCaption(caption, playerId) {
     CardsInPlay.push({
         Text: caption,
-        playerId,
+        PlayerId,
         isChosen: false
     })
 }
 
-function Init(){
-    // this only made sense ath the client
-    //TODO: rethink how this qorks at the server
-    Players.push( { Name: CurrentUser.Name, Score: 0, isDealer: true } )
+function Join(userId){
+    const user = users.Get(user.Id);
+    Players.push( { Name: user.Name, Score: 0, isDealer: true } )
     
-    MyCards.push(CaptionsDeck[0])
-    MyCards.push(CaptionsDeck[1]);
-
-    CurrentPicture = PictureDeck[0];
+    const myCards = CaptionsDeck.list.slice(iCurrentCaption, iCurrentCaption + DEAL_AMOUNT)
+    iCurrentCaption += DEAL_AMOUNT;
+    
+    return { PlayerId: Players.length -1, myCards }
 }
 
 module.exports = {
