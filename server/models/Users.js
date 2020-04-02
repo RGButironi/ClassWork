@@ -1,9 +1,8 @@
 const Users = [
-    { Name: 'Ron', Password: 'pass', Email: 'ron@np.edu' },
+    { Name: 'Ron', Password: 'pass', Email: 'ron@np.edu', userId: 0 },
 ];
 
 module.exports = {
-    CurrentUser: null,
 
     Login(email, password) {
 
@@ -12,7 +11,7 @@ module.exports = {
         if(user.Password != password) throw Error('Wrong Password');
 
    
-    return this.CurrentUser = user;
+    return user;
 
     }
 }
