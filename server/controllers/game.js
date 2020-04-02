@@ -4,7 +4,6 @@ const quoteCards = require('../models/quoteCards');
 const game = require('../models/Game');
 const router = express.Router();
 
-game.SubmitCaption("Corona sucks", 0)
 router
 
     .post('/join', (req, res) => res.send(game.Join(req.body.userId)) )
