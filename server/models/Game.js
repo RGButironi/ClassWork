@@ -1,10 +1,14 @@
 const users = require("./Users");
 const CaptionsDeck = require('../models/quoteCards');
+
 const DEAL_AMOUNT = 3;
+
+let iCurrentCaption = 0;
+
 const Players = [
     { Name: 'Bernie', Score: 0, isDealer: true }
 ];
-let iCurrentCaption = 0;
+
 const MyCards = [];
 
 const PictureDeck = [
@@ -14,6 +18,11 @@ const PictureDeck = [
 ];
 
 let CurrentPicture = "";
+let iCurrentPicture = 0;
+
+function FlipPicture(){
+  return module.exports.CurrentPicture = PictureDeck[iCurrentPicture++]
+}
 
 const CardsInPlay = [];
 
@@ -41,5 +50,5 @@ function Join(userId){
 }
 
 module.exports = {
-    Players, PictureDeck, CurrentPicture, CardsInPlay: CardsInPlay, SubmitCaption, Join 
+    Players, PictureDeck, CurrentPicture, CardsInPlay: CardsInPlay, SubmitCaption, Join, FlipPicture
 }
