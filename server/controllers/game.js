@@ -4,6 +4,14 @@ const quoteCards = require('../models/quoteCards');
 const game = require('../models/Game');
 const router = express.Router();
 
+router.use(function(req, res, next) {
+    if(req.userId != null ){
+        req.playerId = game.GetPlayerId(req.userId)
+    }
+    console.log({ userId: req.userId, playerId: req.playerId })
+    next();
+});
+
 router
 
 .get('/', (req, res) => { 
@@ -25,8 +33,7 @@ router
 })
 
 .post('/cardsInPlay', (req, res) => {
-    const playerId = req.body.playerId;
-    game.SubmitCaption(req.body.caption, playerId);
+    game.SubmitCaption(req.body.caption, req.playerId);
     res.send({ success: true })
 })
 module.exports = router;

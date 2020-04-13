@@ -1,5 +1,6 @@
 const Users = [
     { Name: 'Ron', Password: 'pass', Email: 'ron@np.edu', userId: 0 },
+    { Name: 'Bernie', Password: '2020', Email: 'bernie@newpaltz.edu', userId: 0 },
 ];
 
 module.exports = {

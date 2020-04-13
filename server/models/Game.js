@@ -6,7 +6,7 @@ const DEAL_AMOUNT = 3;
 let iCurrentCaption = 0;
 
 const Players = [
-    { Name: 'Bernie', Score: 0, isDealer: true }
+    { Name: 'Bernie', Score: 0, isDealer: true, userId: 2 }
 ];
 
 const MyCards = [];
@@ -41,7 +41,11 @@ function SubmitCaption(caption, playerId) {
 
 function Join(userId){
     const user = users.Get(user.Id);
-    Players.push( { Name: user.Name, Score: 0, isDealer: false } )
+    Players.push( { Name: user.Name, Score: 0, isDealer: false, userId } )
+
+function GetPlayerId(userId){
+    return Players.findIndex(x=> x.userId == userId);
+}
     
     const myCards = CaptionsDeck.list.slice(iCurrentCaption, iCurrentCaption + DEAL_AMOUNT)
     iCurrentCaption += DEAL_AMOUNT;
@@ -50,5 +54,5 @@ function Join(userId){
 }
 
 module.exports = {
-    Players, PictureDeck, CurrentPicture, CardsInPlay: CardsInPlay, SubmitCaption, Join, FlipPicture
+    Players, PictureDeck, CurrentPicture, CardsInPlay: CardsInPlay, SubmitCaption, Join, FlipPicture, GetPlayerId
 }
