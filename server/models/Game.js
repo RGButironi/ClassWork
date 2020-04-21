@@ -21,38 +21,40 @@ let CurrentPicture = "";
 let iCurrentPicture = 0;
 
 function FlipPicture(){
-  return module.exports.CurrentPicture = PictureDeck[iCurrentPicture++]
+    console.log(CurrentPicture)
+    return module.exports.CurrentPicture = PictureDeck[iCurrentPicture++]
 }
 
 const CardsInPlay = [];
 
-function SubmitCaption(caption, playerId) {
+function SubmitCaption(caption, playerId){
     const player = Players[playerId];
     if(player.isDealer){
-
-    throw Error('Dealer is not allowed to submit a caption')
-    }
+        throw Error('Dealer is not allowed to sumbit a caption')
+    } 
     CardsInPlay.push({
         Text: caption,
-        PlayerId,
-        isChosen: false
+        PlayerId: playerId,
+        IsChosen: false
     })
 }
 
 function Join(userId){
-    const user = users.Get(user.Id);
-    Players.push( { Name: user.Name, Score: 0, isDealer: false, userId } )
+    const user = users.Get(userId);
+    Players.push( { Name: user.Name, Score: 0, isDealer: false, userId })
+
+    const myCards = CaptionsDeck.list.slice(iCurrentCaption, iCurrentCaption + DEAL_AMOUNT);
+    iCurrentCaption += DEAL_AMOUNT;
+
+    return { playerId: Players.length -1, myCards }
+}
 
 function GetPlayerId(userId){
     return Players.findIndex(x=> x.userId == userId);
 }
-    
-    const myCards = CaptionsDeck.list.slice(iCurrentCaption, iCurrentCaption + DEAL_AMOUNT)
-    iCurrentCaption += DEAL_AMOUNT;
-    
-    return { PlayerId: Players.length -1, myCards }
-}
 
 module.exports = {
-    Players, PictureDeck, CurrentPicture, CardsInPlay: CardsInPlay, SubmitCaption, Join, FlipPicture, GetPlayerId
+    Players, PictureDeck, CurrentPicture,
+    CardsInPlay: CardsInPlay,
+    SubmitCaption, Join, FlipPicture, GetPlayerId
 }
