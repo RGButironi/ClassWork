@@ -17,7 +17,6 @@ export default async function myFetch(url, data){
     if(CurrentUser && CurrentUser.userId != null){
         headers.authorization = "bearer " + CurrentUser.userId
     }
-
     if(data){
         response = await fetch(api_root + url, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
