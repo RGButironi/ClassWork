@@ -7,11 +7,11 @@ const router = express.Router();
 router
     .post('/login', (req, res) => {
         try {
-            const users = users.Login(req.body.email, req.body.password);
-            res.send( { ...user, Password: null } );
+            const user = users.Login(req.body.email, req.body.password);
+            res.send( { ...user, Password: undefined } );
         } catch (error) {
-            res.status(401).send({message: error.message});
+            res.status(401).send({ message: error.message });
         }
-})
+    })
 
 module.exports = router;
