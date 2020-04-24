@@ -6,7 +6,6 @@ const DEAL_AMOUNT = 3;
 let iCurrentCaption = 0;
 
 const Players = [
-    { Name: 'Bernie', Score: 0, isDealer: true, userId: 2 }
 ];
 
 const MyCards = [];
@@ -40,6 +39,7 @@ function SubmitCaption(caption, playerId){
 }
 
 function Join(userId){
+    // if atleast one playre has my user id throw and error because theres already player in the game with the error
     if(Players.some(x=> x.userId == userId)){
         // The player already joined the game in another browser or computer
         throw Error("You already joined this game in another browser or computer");

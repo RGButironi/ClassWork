@@ -17,6 +17,7 @@ export default {
                 console.log(x);
             })
             .catch(err=> console.warn(err));
+            //catching error from server that a player is already in the game
     },
     Run(){
         myFetch('/game')
