@@ -7,7 +7,7 @@ import {
   Route
 } from "react-router-dom";
 
-
+import Login from "./views/Login";
 import MyNav from "./components/Nav";
 
 const About = ()=> <h1 className="title is-1">About Page</h1>
@@ -26,6 +26,9 @@ function App() {
           </Route>
           <Route path="/game">
             <Game />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route exact path="/">
             <Home />
